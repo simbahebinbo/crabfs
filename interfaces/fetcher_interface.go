@@ -4,8 +4,8 @@ import (
 	"context"
 	"io"
 
-	crabfsCrypto "github.com/runletapp/crabfs/crypto"
-	pb "github.com/runletapp/crabfs/protos"
+	crabfsCrypto "github.com/simbahebinbo/crabfs/crypto"
+	pb "github.com/simbahebinbo/crabfs/protos"
 )
 
 // Fetcher block fetcher interface

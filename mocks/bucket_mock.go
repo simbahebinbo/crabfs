@@ -11,8 +11,8 @@ import (
 	time "time"
 
 	gomock "github.com/golang/mock/gomock"
-	"github.com/runletapp/crabfs/interfaces"
-	protos "github.com/runletapp/crabfs/protos"
+	"github.com/simbahebinbo/crabfs/interfaces"
+	protos "github.com/simbahebinbo/crabfs/protos"
 )
 
 // MockBucket is a mock of Bucket interface

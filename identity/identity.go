@@ -7,7 +7,7 @@ import (
 
 	"github.com/gogo/protobuf/proto"
 
-	pb "github.com/runletapp/crabfs/protos"
+	pb "github.com/simbahebinbo/crabfs/protos"
 
 	libp2pCrypto "github.com/libp2p/go-libp2p-core/crypto"
 )

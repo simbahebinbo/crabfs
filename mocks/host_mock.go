@@ -13,9 +13,9 @@ import (
 	gomock "github.com/golang/mock/gomock"
 	go_cid "github.com/ipfs/go-cid"
 	go_libp2p_peerstore "github.com/libp2p/go-libp2p-peerstore"
-	crypto "github.com/runletapp/crabfs/crypto"
-	"github.com/runletapp/crabfs/interfaces"
-	protos "github.com/runletapp/crabfs/protos"
+	crypto "github.com/simbahebinbo/crabfs/crypto"
+	"github.com/simbahebinbo/crabfs/interfaces"
+	protos "github.com/simbahebinbo/crabfs/protos"
 )
 
 // MockHost is a mock of Host interface

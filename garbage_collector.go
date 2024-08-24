@@ -7,14 +7,14 @@ import (
 
 	"github.com/golang/protobuf/proto"
 
-	pb "github.com/runletapp/crabfs/protos"
+	pb "github.com/simbahebinbo/crabfs/protos"
 
 	"github.com/GustavoKatel/asyncutils/event"
 	cid "github.com/ipfs/go-cid"
 	ipfsDatastore "github.com/ipfs/go-datastore"
 	ipfsDatastoreQuery "github.com/ipfs/go-datastore/query"
 	ipfsBlockstore "github.com/ipfs/go-ipfs-blockstore"
-	"github.com/runletapp/crabfs/interfaces"
+	"github.com/simbahebinbo/crabfs/interfaces"
 )
 
 var _ interfaces.GarbageCollector = &garbageCollectorImpl{}

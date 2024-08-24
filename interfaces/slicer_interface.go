@@ -1,7 +1,7 @@
 package interfaces
 
 import (
-	pb "github.com/runletapp/crabfs/protos"
+	pb "github.com/simbahebinbo/crabfs/protos"
 
 	blocks "github.com/ipfs/go-block-format"
 )

@@ -5,7 +5,7 @@ import (
 	"io"
 	"time"
 
-	pb "github.com/runletapp/crabfs/protos"
+	pb "github.com/simbahebinbo/crabfs/protos"
 )
 
 // Bucket bucket managemente interface

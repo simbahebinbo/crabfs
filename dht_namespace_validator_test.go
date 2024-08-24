@@ -7,15 +7,15 @@ import (
 	"time"
 
 	blocks "github.com/ipfs/go-block-format"
-	"github.com/runletapp/crabfs/interfaces"
+	"github.com/simbahebinbo/crabfs/interfaces"
 
 	"github.com/golang/mock/gomock"
 	"github.com/golang/protobuf/proto"
 	libp2pRecord "github.com/libp2p/go-libp2p-record"
 	"github.com/stretchr/testify/assert"
 
-	crabfsCrypto "github.com/runletapp/crabfs/crypto"
-	pb "github.com/runletapp/crabfs/protos"
+	crabfsCrypto "github.com/simbahebinbo/crabfs/crypto"
+	pb "github.com/simbahebinbo/crabfs/protos"
 )
 
 func setUpDHTValidatorTest(t *testing.T, pkResolver SwarmPublicKeyResolver) (libp2pRecord.Validator, *gomock.Controller) {

@@ -6,9 +6,9 @@ import (
 	"time"
 
 	ipfsBlockstore "github.com/ipfs/go-ipfs-blockstore"
-	crabfsCrypto "github.com/runletapp/crabfs/crypto"
-	"github.com/runletapp/crabfs/identity"
-	pb "github.com/runletapp/crabfs/protos"
+	crabfsCrypto "github.com/simbahebinbo/crabfs/crypto"
+	"github.com/simbahebinbo/crabfs/identity"
+	pb "github.com/simbahebinbo/crabfs/protos"
 )
 
 // Core interface

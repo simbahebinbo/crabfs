@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/runletapp/crabfs/mocks"
-	pb "github.com/runletapp/crabfs/protos"
+	"github.com/simbahebinbo/crabfs/mocks"
+	pb "github.com/simbahebinbo/crabfs/protos"
 
 	"github.com/stretchr/testify/assert"
 )

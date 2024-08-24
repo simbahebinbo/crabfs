@@ -6,8 +6,8 @@ import (
 	"crypto/cipher"
 
 	blocks "github.com/ipfs/go-block-format"
-	"github.com/runletapp/crabfs/interfaces"
-	pb "github.com/runletapp/crabfs/protos"
+	"github.com/simbahebinbo/crabfs/interfaces"
+	pb "github.com/simbahebinbo/crabfs/protos"
 )
 
 var _ interfaces.Slicer = &BlockSlicer{}

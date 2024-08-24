@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	libp2pRecord "github.com/libp2p/go-libp2p-record"
-	crabfsCrypto "github.com/runletapp/crabfs/crypto"
+	crabfsCrypto "github.com/simbahebinbo/crabfs/crypto"
 )
 
 // DHTNamespacePKValidatorNew creates a new validator that validates for all versions

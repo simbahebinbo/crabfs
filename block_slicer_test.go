@@ -7,8 +7,8 @@ import (
 	"testing"
 
 	"github.com/golang/mock/gomock"
-	crabfsCrypto "github.com/runletapp/crabfs/crypto"
-	"github.com/runletapp/crabfs/interfaces"
+	crabfsCrypto "github.com/simbahebinbo/crabfs/crypto"
+	"github.com/simbahebinbo/crabfs/interfaces"
 	"github.com/stretchr/testify/assert"
 )
 

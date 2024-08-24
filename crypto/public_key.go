@@ -10,7 +10,7 @@ import (
 
 	"github.com/gogo/protobuf/proto"
 
-	"github.com/runletapp/crabfs/crypto/protos"
+	"github.com/simbahebinbo/crabfs/crypto/protos"
 )
 
 var _ PubKey = &publicKeyImpl{}

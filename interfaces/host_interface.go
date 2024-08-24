@@ -6,8 +6,8 @@ import (
 	"time"
 
 	cid "github.com/ipfs/go-cid"
-	crabfsCrypto "github.com/runletapp/crabfs/crypto"
-	pb "github.com/runletapp/crabfs/protos"
+	crabfsCrypto "github.com/simbahebinbo/crabfs/crypto"
+	pb "github.com/simbahebinbo/crabfs/protos"
 
 	libp2pPeerstore "github.com/libp2p/go-libp2p-peerstore"
 )

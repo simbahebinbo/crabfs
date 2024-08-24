@@ -12,8 +12,8 @@ import (
 	ipfsDatastore "github.com/ipfs/go-datastore"
 	ipfsDatastoreSync "github.com/ipfs/go-datastore/sync"
 	ipfsBlockstore "github.com/ipfs/go-ipfs-blockstore"
-	"github.com/runletapp/crabfs/interfaces"
-	pb "github.com/runletapp/crabfs/protos"
+	"github.com/simbahebinbo/crabfs/interfaces"
+	pb "github.com/simbahebinbo/crabfs/protos"
 	"github.com/stretchr/testify/assert"
 )
 

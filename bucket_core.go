@@ -6,9 +6,9 @@ import (
 	"path"
 	"time"
 
-	crabfsCrypto "github.com/runletapp/crabfs/crypto"
-	"github.com/runletapp/crabfs/interfaces"
-	pb "github.com/runletapp/crabfs/protos"
+	crabfsCrypto "github.com/simbahebinbo/crabfs/crypto"
+	"github.com/simbahebinbo/crabfs/interfaces"
+	pb "github.com/simbahebinbo/crabfs/protos"
 )
 
 var _ interfaces.Bucket = &bucketCoreImpl{}

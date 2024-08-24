@@ -8,10 +8,10 @@ import (
 	blocks "github.com/ipfs/go-block-format"
 	ipfsDatastore "github.com/ipfs/go-datastore"
 	ipfsBlockstore "github.com/ipfs/go-ipfs-blockstore"
-	"github.com/runletapp/crabfs/identity"
-	"github.com/runletapp/crabfs/interfaces"
-	"github.com/runletapp/crabfs/options"
-	pb "github.com/runletapp/crabfs/protos"
+	"github.com/simbahebinbo/crabfs/identity"
+	"github.com/simbahebinbo/crabfs/interfaces"
+	"github.com/simbahebinbo/crabfs/options"
+	pb "github.com/simbahebinbo/crabfs/protos"
 	"github.com/stretchr/testify/assert"
 )
 

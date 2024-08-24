@@ -11,11 +11,11 @@ import (
 	"os/signal"
 	"time"
 
-	crabfsCrypto "github.com/runletapp/crabfs/crypto"
-	"github.com/runletapp/crabfs/interfaces"
-	"github.com/runletapp/crabfs/options"
+	crabfsCrypto "github.com/simbahebinbo/crabfs/crypto"
+	"github.com/simbahebinbo/crabfs/interfaces"
+	"github.com/simbahebinbo/crabfs/options"
 
-	"github.com/runletapp/crabfs"
+	"github.com/simbahebinbo/crabfs"
 )
 
 func nodeStart(ctx context.Context, bootstrapAddr string, mountLocation string) interfaces.Core {

@@ -11,8 +11,8 @@ import (
 	cid "github.com/ipfs/go-cid"
 	libp2pRecord "github.com/libp2p/go-libp2p-record"
 
-	crabfsCrypto "github.com/runletapp/crabfs/crypto"
-	pb "github.com/runletapp/crabfs/protos"
+	crabfsCrypto "github.com/simbahebinbo/crabfs/crypto"
+	pb "github.com/simbahebinbo/crabfs/protos"
 )
 
 // SwarmPublicKeyResolver resolver type to be used with DHTNamespacePKValidator

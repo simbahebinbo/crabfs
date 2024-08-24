@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "Crypto helpers to be used in javascript",
   "main": "build/index.js",
-  "repository": "github.com/runletapp/crabfs",
+  "repository": "github.com/simbahebinbo/crabfs",
   "author": "GustavoKatel",
   "license": "MIT",
   "scripts": {

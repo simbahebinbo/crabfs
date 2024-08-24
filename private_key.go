@@ -6,7 +6,7 @@ import (
 	"io"
 	"io/ioutil"
 
-	crabfsCrypto "github.com/runletapp/crabfs/crypto"
+	crabfsCrypto "github.com/simbahebinbo/crabfs/crypto"
 )
 
 // GenerateKeyPair generates a private and public keys ready to be used

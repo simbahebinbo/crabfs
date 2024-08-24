@@ -11,13 +11,13 @@ import (
 	ipfsDatastore "github.com/ipfs/go-datastore"
 	ipfsDatastoreSync "github.com/ipfs/go-datastore/sync"
 	ipfsBlockstore "github.com/ipfs/go-ipfs-blockstore"
-	crabfsCrypto "github.com/runletapp/crabfs/crypto"
-	"github.com/runletapp/crabfs/mocks"
-	pb "github.com/runletapp/crabfs/protos"
+	crabfsCrypto "github.com/simbahebinbo/crabfs/crypto"
+	"github.com/simbahebinbo/crabfs/mocks"
+	pb "github.com/simbahebinbo/crabfs/protos"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/golang/mock/gomock"
-	"github.com/runletapp/crabfs/interfaces"
+	"github.com/simbahebinbo/crabfs/interfaces"
 
 	libp2pPeerstore "github.com/libp2p/go-libp2p-peerstore"
 )

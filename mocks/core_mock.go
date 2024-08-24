@@ -12,10 +12,10 @@ import (
 
 	gomock "github.com/golang/mock/gomock"
 	go_ipfs_blockstore "github.com/ipfs/go-ipfs-blockstore"
-	crypto "github.com/runletapp/crabfs/crypto"
-	identity "github.com/runletapp/crabfs/identity"
-	"github.com/runletapp/crabfs/interfaces"
-	protos "github.com/runletapp/crabfs/protos"
+	crypto "github.com/simbahebinbo/crabfs/crypto"
+	identity "github.com/simbahebinbo/crabfs/identity"
+	"github.com/simbahebinbo/crabfs/interfaces"
+	protos "github.com/simbahebinbo/crabfs/protos"
 )
 
 // MockCore is a mock of Core interface
