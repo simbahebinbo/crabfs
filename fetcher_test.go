@@ -19,7 +19,7 @@ import (
 	"github.com/golang/mock/gomock"
 	"github.com/simbahebinbo/crabfs/interfaces"
 
-	libp2pPeerstore "github.com/libp2p/go-libp2p-peerstore"
+	libp2pPeerstore "github.com/libp2p/go-libp2p/p2p/host/peerstore"
 )
 
 func setUpFetcherTest(t *testing.T, object *pb.CrabObject) (interfaces.Fetcher, interfaces.Core, crabfsCrypto.PrivKey, *gomock.Controller) {

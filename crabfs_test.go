@@ -3,7 +3,7 @@ package crabfs
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"testing"
 	"time"
 
@@ -81,7 +81,7 @@ func TestPut(t *testing.T) {
 		assert.Nil(err)
 		defer fetcher.Close()
 
-		data, err := ioutil.ReadAll(fetcher)
+		data, err := io.ReadAll(fetcher)
 		assert.Nil(err)
 		assert.Equal([]byte("data"), data)
 	})
@@ -111,7 +111,7 @@ func TestPut(t *testing.T) {
 		}
 		defer fetcher.Close()
 
-		data, err := ioutil.ReadAll(fetcher)
+		data, err := io.ReadAll(fetcher)
 		assert.Nil(err)
 		assert.Equal([]byte("data"), data)
 	})

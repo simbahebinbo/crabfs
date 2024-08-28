@@ -3,10 +3,8 @@ package crabfs
 import (
 	"bytes"
 	"crypto/rand"
-	"io"
-	"io/ioutil"
-
 	crabfsCrypto "github.com/simbahebinbo/crabfs/crypto"
+	"io"
 )
 
 // GenerateKeyPair generates a private and public keys ready to be used
@@ -37,7 +35,7 @@ func GenerateKeyPairReader() (io.Reader, error) {
 
 // ReadPrivateKey reads the key from a reader
 func ReadPrivateKey(in io.Reader) (crabfsCrypto.PrivKey, error) {
-	data, err := ioutil.ReadAll(in)
+	data, err := io.ReadAll(in)
 	if err != nil {
 		return nil, err
 	}

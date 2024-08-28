@@ -2,14 +2,12 @@ package identity
 
 import (
 	"crypto/rand"
-	"io"
-	"io/ioutil"
-
 	"github.com/gogo/protobuf/proto"
+	"io"
 
 	pb "github.com/simbahebinbo/crabfs/protos"
 
-	libp2pCrypto "github.com/libp2p/go-libp2p-core/crypto"
+	libp2pCrypto "github.com/libp2p/go-libp2p/core/crypto"
 )
 
 var _ Identity = &Libp2pIdentity{}
@@ -43,7 +41,7 @@ func CreateIdentity() (Identity, error) {
 
 // UnmarshalIdentity unmarshal identity from a reader
 func UnmarshalIdentity(r io.Reader) (Identity, error) {
-	data, err := ioutil.ReadAll(r)
+	data, err := io.ReadAll(r)
 	if err != nil {
 		return nil, err
 	}

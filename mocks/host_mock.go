@@ -12,7 +12,7 @@ import (
 
 	gomock "github.com/golang/mock/gomock"
 	go_cid "github.com/ipfs/go-cid"
-	go_libp2p_peerstore "github.com/libp2p/go-libp2p-peerstore"
+	go_libp2p_peerstore "github.com/libp2p/go-libp2p/p2p/host/peerstore"
 	crypto "github.com/simbahebinbo/crabfs/crypto"
 	"github.com/simbahebinbo/crabfs/interfaces"
 	protos "github.com/simbahebinbo/crabfs/protos"

@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"path"
 	"strings"
 	"time"
@@ -22,21 +21,20 @@ import (
 	"github.com/multiformats/go-multiaddr"
 
 	ipfsDatastore "github.com/ipfs/go-datastore"
-	ipfsDatastoreQuery "github.com/ipfs/go-datastore/query"
 	blockstore "github.com/ipfs/go-ipfs-blockstore"
 	"github.com/libp2p/go-libp2p"
-	libp2pCircuit "github.com/libp2p/go-libp2p-circuit"
-	"github.com/libp2p/go-libp2p-core/host"
-	libp2pHost "github.com/libp2p/go-libp2p-core/host"
-	libp2pNet "github.com/libp2p/go-libp2p-core/network"
-	libp2pRouting "github.com/libp2p/go-libp2p-core/routing"
-	discovery "github.com/libp2p/go-libp2p-discovery"
 	libp2pDht "github.com/libp2p/go-libp2p-kad-dht"
 	libp2pDhtOptions "github.com/libp2p/go-libp2p-kad-dht/opts"
-	libp2pPeerstore "github.com/libp2p/go-libp2p-peerstore"
-	routing "github.com/libp2p/go-libp2p-routing"
-	libp2pSwarm "github.com/libp2p/go-libp2p-swarm"
+	"github.com/libp2p/go-libp2p/core/host"
+	libp2pHost "github.com/libp2p/go-libp2p/core/host"
+	libp2pNet "github.com/libp2p/go-libp2p/core/network"
+	libp2pRouting "github.com/libp2p/go-libp2p/core/routing"
+	routing "github.com/libp2p/go-libp2p/core/routing"
+	discovery "github.com/libp2p/go-libp2p/p2p/discovery"
+	libp2pPeerstore "github.com/libp2p/go-libp2p/p2p/host/peerstore"
 	libp2pRoutedHost "github.com/libp2p/go-libp2p/p2p/host/routed"
+	libp2pSwarm "github.com/libp2p/go-libp2p/p2p/net/swarm"
+	libp2pCircuit "github.com/libp2p/go-libp2p/p2p/protocol/circuitv2"
 )
 
 var _ interfaces.Host = &hostImpl{}
@@ -217,7 +215,7 @@ func (host *hostImpl) PutPublicKey(publicKey crabfsCrypto.PubKey) error {
 func (host *hostImpl) handleStreamV1(stream libp2pNet.Stream) {
 	defer stream.Close()
 
-	data, err := ioutil.ReadAll(stream)
+	data, err := io.ReadAll(stream)
 	if err != nil {
 		return
 	}
@@ -244,71 +242,73 @@ func (host *hostImpl) handleStreamV1(stream libp2pNet.Stream) {
 }
 
 func (host *hostImpl) Reprovide(ctx context.Context, withBlocks bool) error {
-	query := ipfsDatastoreQuery.Query{
-		Prefix: "/crabfs/",
-	}
-
-	results, err := host.ds.Query(query)
-	if err != nil {
-		return err
-	}
-
-	for result := range results.Next() {
-		var record pb.DHTNameRecord
-		if err := proto.Unmarshal(result.Value, &record); err != nil {
-			// Invalid key, do not reprovide it
-			continue
-		}
-		object, err := host.xObjectFromRecord(&record)
-		if err != nil {
-			// Invalid key, do not reprovide it
-			continue
-		}
-
-		if host.isObjectLocked(object) {
-			// Do not reprovide locked objects
-			continue
-		}
-
-		host.dhtPutValue(ctx, result.Key, result.Value)
-	}
-
-	if withBlocks {
-		ch, err := host.blockstore.AllKeysChan(ctx)
-		if err != nil {
-			return err
-		}
-
-		for cid := range ch {
-			_cid := cid
-			host.provideWorker.PostJob(func(ctx context.Context) error {
-				return host.Provide(ctx, _cid)
-			})
-		}
-	}
+	//query := ipfsDatastoreQuery.Query{
+	//	Prefix: "/crabfs/",
+	//}
+	//
+	//results, err := host.ds.Query(query)
+	//if err != nil {
+	//	return err
+	//}
+	//
+	//for result := range results.Next() {
+	//	var record pb.DHTNameRecord
+	//	if err := proto.Unmarshal(result.Value, &record); err != nil {
+	//		// Invalid key, do not reprovide it
+	//		continue
+	//	}
+	//	object, err := host.xObjectFromRecord(&record)
+	//	if err != nil {
+	//		// Invalid key, do not reprovide it
+	//		continue
+	//	}
+	//
+	//	if host.isObjectLocked(object) {
+	//		// Do not reprovide locked objects
+	//		continue
+	//	}
+	//
+	//	host.dhtPutValue(ctx, result.Key, result.Value)
+	//}
+	//
+	//if withBlocks {
+	//	ch, err := host.blockstore.AllKeysChan(ctx)
+	//	if err != nil {
+	//		return err
+	//	}
+	//
+	//	for cid := range ch {
+	//		_cid := cid
+	//		host.provideWorker.PostJob(func(ctx context.Context) error {
+	//			return host.Provide(ctx, _cid)
+	//		})
+	//	}
+	//}
 
 	return nil
 }
 
 func (host *hostImpl) connectToPeer(addr string) error {
-	ma := multiaddr.StringCast(addr)
+	//ma := multiaddr.StringCast(addr)
+	//
+	//peerinfo, err := libp2pPeerstore.InfoFromP2pAddr(ma)
+	//if err != nil {
+	//	return err
+	//}
+	//
+	//return host.p2pHost.Connect(host.settings.Context, *peerinfo)
 
-	peerinfo, err := libp2pPeerstore.InfoFromP2pAddr(ma)
-	if err != nil {
-		return err
-	}
-
-	return host.p2pHost.Connect(host.settings.Context, *peerinfo)
+	return nil
 }
 
 func (host *hostImpl) GetID() string {
-	return host.p2pHost.ID().Pretty()
+	return host.p2pHost.ID().String()
 }
 
 func (host *hostImpl) GetAddrs() []string {
 	addrs := []string{}
 
-	hostAddr, err := multiaddr.NewMultiaddr(fmt.Sprintf("/p2p/%s", host.p2pHost.ID().Pretty()))
+	hostAddr, err := multiaddr.NewMultiaddr(fmt.Sprintf("/p2p/%s", host.p2pHost.ID().String()))
 	if err != nil {
 		return addrs
 	}
@@ -439,7 +439,7 @@ func (host *hostImpl) Provide(ctx context.Context, cid cid.Cid) error {
 }
 
 func (host *hostImpl) dhtPutValue(ctx context.Context, key string, value []byte) error {
-	if err := host.ds.Put(ipfsDatastore.NewKey(key), value); err != nil {
+	if err := host.ds.Put(ctx, ipfsDatastore.NewKey(key), value); err != nil {
 		return err
 	}
 
@@ -460,7 +460,7 @@ func (host *hostImpl) xObjectFromRecord(record *pb.DHTNameRecord) (*pb.CrabObjec
 }
 
 func (host *hostImpl) getCache(ctx context.Context, key string) *time.Time {
-	cacheData, err := host.ds.Get(ipfsDatastore.NewKey(key))
+	cacheData, err := host.ds.Get(ctx, ipfsDatastore.NewKey(key))
 	if err != nil {
 		return nil
 	}
@@ -485,7 +485,7 @@ func (host *hostImpl) get(ctx context.Context, publicKey crabfsCrypto.PubKey, bu
 	var object *pb.CrabObject
 	var record pb.DHTNameRecord
 
-	dataLocal, err := host.ds.Get(ipfsDatastore.NewKey(key))
+	dataLocal, err := host.ds.Get(ctx, ipfsDatastore.NewKey(key))
 	if err == nil {
 		if err := proto.Unmarshal(dataLocal, &record); err == nil {
 			object, err = host.xObjectFromRecord(&record)
@@ -523,12 +523,12 @@ func (host *hostImpl) get(ctx context.Context, publicKey crabfsCrypto.PubKey, bu
 
 	// Only republish if there's no lock
 	if !host.isObjectLocked(object) {
-		if err := host.ds.Put(ipfsDatastore.NewKey(key), data); err != nil {
+		if err := host.ds.Put(ctx, ipfsDatastore.NewKey(key), data); err != nil {
 			// Log
 		}
 	}
 
-	if err := host.ds.Put(ipfsDatastore.NewKey(cacheKey), []byte(time.Now().UTC().Format(time.RFC3339Nano))); err != nil {
+	if err := host.ds.Put(ctx, ipfsDatastore.NewKey(cacheKey), []byte(time.Now().UTC().Format(time.RFC3339Nano))); err != nil {
 		return nil, nil, err
 	}
 

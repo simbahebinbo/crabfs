@@ -9,7 +9,7 @@ import (
 	crabfsCrypto "github.com/simbahebinbo/crabfs/crypto"
 	pb "github.com/simbahebinbo/crabfs/protos"
 
-	libp2pPeerstore "github.com/libp2p/go-libp2p-peerstore"
+	libp2pPeerstore "github.com/libp2p/go-libp2p/p2p/host/peerstore"
 )
 
 // Host p2p host abstraction
